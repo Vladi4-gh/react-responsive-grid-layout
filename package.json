@@ -1,0 +1,39 @@
+{
+  "name": "react-responsive-grid-layout",
+  "description": "React Responsive Grid Layout is a React component that provides you a responsive layout based on CSS Grid Layout.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vladi4-gh/react-responsive-grid-layout.git"
+  },
+  "homepage": "https://github.com/Vladi4-gh/react-responsive-grid-layout#readme",
+  "bugs": {
+    "url": "https://github.com/Vladi4-gh/react-responsive-grid-layout/issues",
+    "email": "vladi4.gm@gmail.com"
+  },
+  "keywords": [
+    "react",
+    "grid",
+    "css grid",
+    "grid layout",
+    "layout",
+    "responsive",
+    "ui"
+  ],
+  "author": {
+    "name": "Vladislav Ivanov",
+    "email": "vladi4.gm@gmail.com",
+    "url": "https://www.linkedin.com/in/vladi4/"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {
+
+  }
+}
