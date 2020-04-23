@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = (env, argv, isProduction) => ({
     entry: {
-        app: "./src/index.js"
+        app: "./src/demo/index.js"
     },
     output: {
         filename: "bundle.js",
@@ -15,10 +15,10 @@ module.exports = (env, argv, isProduction) => ({
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             inject: false,
-            template: "./src/index.html",
+            template: "./src/demo/index.html",
             hash: isProduction,
             title: `React Responsive Grid Layout demo (${!isProduction ? "development" : "production"} mode)`,
-            favicon: path.resolve(__dirname, "./src/images/favicon.png")
+            favicon: path.resolve(__dirname, "./src/demo/images/favicon.png")
         }),
         new MiniCssExtractPlugin({
             filename: "bundle.css"
@@ -27,7 +27,7 @@ module.exports = (env, argv, isProduction) => ({
     module: {
         rules: [
             {
-                test: /\.(sc|c)ss$/,
+                test: /\.(css|scss)$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     {
@@ -45,8 +45,11 @@ module.exports = (env, argv, isProduction) => ({
                 ]
             },
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
+                resolve: {
+                    extensions: [".js", ".jsx"]
+                },
                 loader: "babel-loader"
             }
         ]

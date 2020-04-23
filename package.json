@@ -26,9 +26,9 @@
     "url": "https://www.linkedin.com/in/vladi4/"
   },
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.dev.js",
-    "build-dev": "webpack --config webpack.dev.js",
-    "build-prod": "webpack --config webpack.prod.js"
+    "start-demo": "webpack-dev-server --open --config webpack.demo.dev.js",
+    "build-demo-dev": "webpack --config webpack.demo.dev.js",
+    "build-demo-prod": "webpack --config webpack.demo.prod.js"
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
