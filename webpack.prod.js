@@ -6,10 +6,7 @@ module.exports = (env, argv) => (
         common(env, argv, true),
         {
             mode: "production",
-            devtool: "source-map",
-            output: {
-                filename: '[name].[hash].bundle.js'
-            }
+            devtool: "source-map"
         }
     )
 );
