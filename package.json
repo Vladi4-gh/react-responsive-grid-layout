@@ -15,12 +15,10 @@
   },
   "keywords": [
     "react",
-    "grid",
-    "css grid",
-    "grid layout",
-    "layout",
-    "responsive",
-    "ui"
+    "css-grid",
+    "grid-layout",
+    "responsive-layout",
+    "ui-components"
   ],
   "author": {
     "name": "Vladislav Ivanov",
