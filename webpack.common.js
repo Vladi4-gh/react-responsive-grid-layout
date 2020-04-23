@@ -7,6 +7,10 @@ module.exports = (env, argv, isProduction) => ({
     entry: {
         app: "./src/index.js"
     },
+    output: {
+        filename: "[name].bundle.js",
+        path: path.resolve(__dirname, "dist")
+    },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
@@ -19,8 +23,13 @@ module.exports = (env, argv, isProduction) => ({
             location: "body"
         })
     ],
-    output: {
-        filename: "[name].bundle.js",
-        path: path.resolve(__dirname, "dist")
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
+            }
+        ]
     }
 });
