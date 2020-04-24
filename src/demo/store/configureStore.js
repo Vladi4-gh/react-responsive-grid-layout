@@ -2,7 +2,7 @@ import {
     createStore,
     combineReducers
 } from "redux";
-import mockDataReducer from "../reducers/mockDataReducer";
+import mockDataReducer from "../reducers/mockData/mockData";
 
 export default () => (
     createStore(
