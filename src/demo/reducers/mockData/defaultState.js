@@ -1,18 +1,23 @@
+import localStorageManager from "../../utils/localStorageManager";
+
 export default {
-    currentMockDataSetId: 1,
+    currentMockDataSetId: localStorageManager.demoPage.currentMockDataSetId || 1,
     mockDataSets: [
         {
             id: 1,
             name: "Mock Data Set 1",
             items: [
                 {
-                    id: 1
+                    id: 1,
+                    backgroundColor: "yellow"
                 },
                 {
-                    id: 2
+                    id: 2,
+                    backgroundColor: "yellow"
                 },
                 {
-                    id: 3
+                    id: 3,
+                    backgroundColor: "yellow"
                 }
             ]
         },
@@ -21,13 +26,16 @@ export default {
             name: "Mock Data Set 2",
             items: [
                 {
-                    id: 4
+                    id: 4,
+                    backgroundColor: "yellowgreen"
                 },
                 {
-                    id: 5
+                    id: 5,
+                    backgroundColor: "yellowgreen"
                 },
                 {
-                    id: 6
+                    id: 6,
+                    backgroundColor: "yellowgreen"
                 }
             ]
         }

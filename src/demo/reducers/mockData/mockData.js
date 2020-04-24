@@ -5,7 +5,7 @@ export default (state = defaultState, action) => {
         case "SET_CURRENT_MOCK_DATA_SET_ID":
             return {
                 ...state,
-                currentMockDataSetId: action.id
+                currentMockDataSetId: action.payload.id
             };
         default:
             return state;

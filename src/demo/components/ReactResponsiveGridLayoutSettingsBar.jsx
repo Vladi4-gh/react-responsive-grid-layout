@@ -1,10 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { setCurrentMockDataSetId } from "../actions/mockData";
+import localStorageManager from "../utils/localStorageManager";
 
 class ReactResponsiveGridLayoutSettingsBar extends React.Component {
     state = {
-        isSettingsBarOpened: false
+        isSettingsBarOpened: localStorageManager.demoPage.isSettingsBarOpened || false
     }
 
     renderOpenSettingsBarButton = () => {
@@ -12,6 +13,7 @@ class ReactResponsiveGridLayoutSettingsBar extends React.Component {
             this.setState(() => ({
                 isSettingsBarOpened: true
             }));
+            localStorageManager.demoPage.isSettingsBarOpened = true;
         };
 
         return this.state.isSettingsBarOpened ? null : (
@@ -26,6 +28,7 @@ class ReactResponsiveGridLayoutSettingsBar extends React.Component {
             this.setState(() => ({
                 isSettingsBarOpened: false
             }));
+            localStorageManager.demoPage.isSettingsBarOpened = false;
         };
 
         return (
@@ -46,7 +49,10 @@ class ReactResponsiveGridLayoutSettingsBar extends React.Component {
 
     renderMockDataSetsDropdownList = () => {
         const onChange = (e) => {
-            this.props.setCurrentMockDataSetId(+e.target.value);
+            const currentMockDataSetId = +e.target.value;
+
+            this.props.setCurrentMockDataSetId(currentMockDataSetId);
+            localStorageManager.demoPage.currentMockDataSetId = currentMockDataSetId;
         };
 
         return (
