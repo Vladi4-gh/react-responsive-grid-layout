@@ -4,24 +4,22 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = (env, argv, isProduction) => ({
-    entry: {
-        demo: "./src/demo/index.js"
-    },
+    entry: "./src/demoPage/index.js",
     output: {
-        filename: "[name].js",
+        filename: `demo-page${isProduction ? ".min" : ""}.js`,
         path: path.resolve(__dirname, "dist")
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             inject: false,
-            template: "./src/demo/index.html",
+            template: "./src/demoPage/index.html",
             hash: isProduction,
-            title: `React Responsive Grid Layout demo (${!isProduction ? "development" : "production"} mode)`,
-            favicon: path.resolve(__dirname, "./src/demo/images/favicon.png")
+            title: `React Responsive Grid Layout (${!isProduction ? "development" : "production"} mode)`,
+            favicon: path.resolve(__dirname, "./src/demoPage/images/favicon.png")
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].css"
+            filename: `demo-page${isProduction ? ".min" : ""}.css`,
         })
     ],
     module: {
