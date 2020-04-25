@@ -8,16 +8,13 @@ export default {
             name: "Mock Data Set 1",
             items: [
                 {
-                    id: 1,
-                    backgroundColor: "yellow"
+                    id: 1
                 },
                 {
-                    id: 2,
-                    backgroundColor: "yellow"
+                    id: 2
                 },
                 {
-                    id: 3,
-                    backgroundColor: "yellow"
+                    id: 3
                 }
             ]
         },
@@ -26,16 +23,13 @@ export default {
             name: "Mock Data Set 2",
             items: [
                 {
-                    id: 4,
-                    backgroundColor: "yellowgreen"
+                    id: 4
                 },
                 {
-                    id: 5,
-                    backgroundColor: "yellowgreen"
+                    id: 5
                 },
                 {
-                    id: 6,
-                    backgroundColor: "yellowgreen"
+                    id: 6
                 }
             ]
         }

@@ -5,10 +5,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = (env, argv, isProduction) => ({
     entry: {
-        app: "./src/demo/index.js"
+        demo: "./src/demo/index.js"
     },
     output: {
-        filename: "bundle.js",
+        filename: "[name].js",
         path: path.resolve(__dirname, "dist")
     },
     plugins: [
@@ -21,7 +21,7 @@ module.exports = (env, argv, isProduction) => ({
             favicon: path.resolve(__dirname, "./src/demo/images/favicon.png")
         }),
         new MiniCssExtractPlugin({
-            filename: "bundle.css"
+            filename: "[name].css"
         })
     ],
     module: {
@@ -29,7 +29,12 @@ module.exports = (env, argv, isProduction) => ({
             {
                 test: /\.(css|scss)$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            hmr: !isProduction
+                        }
+                    },
                     {
                         loader: "css-loader",
                         options: {

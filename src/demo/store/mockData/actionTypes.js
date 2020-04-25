@@ -1,0 +1,3 @@
+export default {
+    SET_CURRENT_MOCK_DATA_SET_ID: "SET_CURRENT_MOCK_DATA_SET_ID"
+};

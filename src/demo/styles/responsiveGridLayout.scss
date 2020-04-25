@@ -1,0 +1,14 @@
+@import "../../ResponsiveGridLayout/styles/styles.scss";
+
+.responsive-grid-layout {
+    grid-template-rows: 150px;
+    grid-template-columns: 150px 150px 150px;
+
+    &--item {
+        align-items: center;
+        background-color: yellowgreen;
+        border: 1px solid green;
+        display: flex;
+        justify-content: center;
+    }
+}
