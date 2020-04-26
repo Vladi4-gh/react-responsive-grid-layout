@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { setCurrentMockDataSetId } from "../store/mockData/actions";
-import localStorageManager from "../utils/localStorageManager";
+import { setCurrentMockDataSetId } from "../../store/mockData/actions";
+import localStorageManager from "../../utils/localStorageManager";
 
 const SettingsBar = (props) => {
     const [isSettingsBarOpened, setIsSettingsBarOpened] = useState(localStorageManager.demoPage.isSettingsBarOpened || false);
@@ -17,7 +17,7 @@ const SettingsBar = (props) => {
                 className="open-settings-bar-button"
                 onClick={onClick}
             >
-                Current mock data is "{props.currentMockDataSet.name}". Click here to change.
+                <span>Current mock data is <span className="current-mock-data-set-name">{props.currentMockDataSet.name}</span>. Click here to change.</span>
             </button>
         );
     }

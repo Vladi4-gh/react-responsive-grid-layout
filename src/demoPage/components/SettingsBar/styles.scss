@@ -1,0 +1,23 @@
+.settings-bar-container {
+    .settings-bar {
+        display: flex;
+        flex-direction: column;
+
+        .mock-data-sets-dropdown-list {
+            width: 100%;
+        }
+
+        .close-settings-bar-button {
+            width: 100%;
+        }
+    }
+
+    .open-settings-bar-button {
+        width: 100%;
+
+        .current-mock-data-set-name {
+            background-color: var(--color-hierophant-green);
+            color: var(--color-sunshine-yellow)
+        }
+    }
+}

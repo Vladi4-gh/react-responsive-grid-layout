@@ -1,2 +1,6 @@
-@import "./demoPage.scss";
-@import "./responsiveGridLayout.scss";
+@import "../styles/variables/colors";
+@import "../styles/variables/sizes";
+
+@import "../styles/base/base";
+
+@import "../components/DemoPage/styles";

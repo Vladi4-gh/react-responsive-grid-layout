@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import SettingsBar from "./SettingsBar";
-import ResponsiveGridLayout from "../../ResponsiveGridLayout/components/ResponsiveGridLayout";
+import SettingsBar from "../SettingsBar/component";
+import ResponsiveGridLayout from "../../../ResponsiveGridLayout/component";
 
 const DemoPage = ({ mockDataItems }) => (
     <div className="demo-page">
