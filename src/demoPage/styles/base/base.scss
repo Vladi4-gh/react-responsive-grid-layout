@@ -10,12 +10,11 @@ body {
 
 button,
 select {
-    align-items: center;
     background-color: var(--color-sunshine-yellow);
     border: none;
-    border-bottom: 1px solid var(--color-hierophant-green);
+    border-bottom: var(--border-size-s) solid var(--color-hierophant-green);
+    border-top: 1px solid transparent;
     color: var(--color-hierophant-green);
     cursor: pointer;
-    display: flex;
-    justify-content: center;
+    height: 30px;
 }

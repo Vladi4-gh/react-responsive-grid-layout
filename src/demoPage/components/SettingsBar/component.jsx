@@ -17,7 +17,7 @@ const SettingsBar = (props) => {
                 className="open-settings-bar-button"
                 onClick={onClick}
             >
-                <span>Current mock data is <span className="current-mock-data-set-name">{props.currentMockDataSet.name}</span>. Click here to change.</span>
+                Current mock data is <span className="current-mock-data-set-name">{props.currentMockDataSet.name}</span>. Click here to change.
             </button>
         );
     }

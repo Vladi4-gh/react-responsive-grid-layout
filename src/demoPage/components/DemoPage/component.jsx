@@ -6,10 +6,10 @@ import ResponsiveGridLayout from "../../../ResponsiveGridLayout/component";
 const DemoPage = ({ mockDataItems }) => (
     <div className="demo-page">
         <SettingsBar />
-        <ResponsiveGridLayout>
-            {mockDataItems.map((mockDataItem) => (
-                <div key={mockDataItem.id}>
-                    {mockDataItem.id}
+        <ResponsiveGridLayout data={mockDataItems}>
+            {mockDataItems.map((mockDataItem, index) => (
+                <div key={index}>
+                    {index}
                 </div>
             ))}
         </ResponsiveGridLayout>
