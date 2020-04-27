@@ -1,12 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
-import ReactResponsiveGridLayoutSettingsBar from "./ReactResponsiveGridLayoutSettingsBar";
-import ReactResponsiveGridLayout from "../../ReactResponsiveGridLayout/components/ReactResponsiveGridLayout";
+import SettingsBar from "../SettingsBar/component";
+import ResponsiveGridLayout from "../../../ResponsiveGridLayout/component";
 
 const DemoPage = ({ mockDataItems }) => (
     <div className="demo-page">
-        <ReactResponsiveGridLayoutSettingsBar />
-        <ReactResponsiveGridLayout data={mockDataItems} />
+        <SettingsBar />
+        <ResponsiveGridLayout>
+            {mockDataItems.map((mockDataItem) => (
+                <div key={mockDataItem.id}>
+                    {mockDataItem.id}
+                </div>
+            ))}
+        </ResponsiveGridLayout>
     </div>
 );
 

@@ -1,5 +1,7 @@
+import localStorageManager from "../../utils/localStorageManager";
+
 export default {
-    currentMockDataSetId: 1,
+    currentMockDataSetId: localStorageManager.demoPage.currentMockDataSetId || 1,
     mockDataSets: [
         {
             id: 1,
