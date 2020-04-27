@@ -1,51 +1,11 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import classNames from "classNames";
 import { setCurrentMockDataSetId } from "../../store/mockData/actions";
 import localStorageManager from "../../utils/localStorageManager";
 
 const SettingsBar = (props) => {
     const [isSettingsBarOpened, setIsSettingsBarOpened] = useState(localStorageManager.demoPage.isSettingsBarOpened || false);
-
-    const renderOpenSettingsBarButton = () => {
-        const onClick = () => {
-            setIsSettingsBarOpened(true);
-            localStorageManager.demoPage.isSettingsBarOpened = true;
-        };
-
-        return isSettingsBarOpened ? null : (
-            <button
-                className="open-settings-bar-button"
-                onClick={onClick}
-            >
-                Current mock data is <span className="current-mock-data-set-name">{props.currentMockDataSet.name}</span>. Click here to change.
-            </button>
-        );
-    }
-
-    const renderCloseSettingsBarButton = () => {
-        const onClick = () => {
-            setIsSettingsBarOpened(false);
-            localStorageManager.demoPage.isSettingsBarOpened = false;
-        };
-
-        return (
-            <button
-                className="close-settings-bar-button"
-                onClick={onClick}
-            >
-                Close
-            </button>
-        );
-    }
-
-    const renderSettingsBar = () => (
-        !isSettingsBarOpened ? null : (
-            <div className="settings-bar">
-                {renderMockDataSetsDropdownList()}
-                {renderCloseSettingsBarButton()}
-            </div>
-        )
-    )
 
     const renderMockDataSetsDropdownList = () => {
         const onChange = (e) => {
@@ -71,12 +31,40 @@ const SettingsBar = (props) => {
                 ))}
             </select>
         );
-    }
+    };
+
+    const renderSettingsBar = () => (
+        !isSettingsBarOpened ? null : (
+            <div className="settings-bar">
+                {renderMockDataSetsDropdownList()}
+            </div>
+        )
+    );
+
+    const renderToggleSettingsBarButton = () => {
+        const onClick = () => {
+            setIsSettingsBarOpened(!isSettingsBarOpened);
+            localStorageManager.demoPage.isSettingsBarOpened = !isSettingsBarOpened;
+        };
+
+        return (
+            <button
+                className={classNames("toggle-settings-bar-button", `toggle-settings-bar-button__${!isSettingsBarOpened ? "open" : "close"}`)}
+                onClick={onClick}
+            >
+                {
+                    !isSettingsBarOpened
+                    ? (<span>Current mock data is <span className="current-mock-data-set-name">{props.currentMockDataSet.name}</span>. Click here to change.</span>)
+                    : (<span>Close</span>)
+                }
+            </button>
+        );
+    };
 
     return (
         <div className="settings-bar-container">
             {renderSettingsBar()}
-            {renderOpenSettingsBarButton()}
+            {renderToggleSettingsBarButton()}
         </div>
     );
 }
