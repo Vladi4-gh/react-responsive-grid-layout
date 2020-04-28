@@ -33,6 +33,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "normalize.css": "^8.0.1",
+    "random": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
