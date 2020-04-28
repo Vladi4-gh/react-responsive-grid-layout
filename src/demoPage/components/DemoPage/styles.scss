@@ -1,17 +1,14 @@
 .demo-page {
     @import '../SettingsBar/styles';
-    @import '../../../ResponsiveGridLayout/styles';
 
     .responsive-grid-layout {
         padding: var(--indent-size-s);
-
-        grid-template-rows: 150px;
-        grid-template-columns: 150px 150px 150px;
+        grid-gap: var(--indent-size-s);
 
         &--item {
             align-items: center;
             background-color: var(--color-sunshine-yellow);
-            border: 1px solid var(--color-hierophant-green);
+            border: var(--border-size-s) solid var(--color-hierophant-green);
             color: var(--color-hierophant-green);
             display: flex;
             font-weight: bold;
