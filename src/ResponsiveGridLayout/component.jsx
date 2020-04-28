@@ -1,12 +1,29 @@
-import React from "react";
+import React, {
+    useEffect,
+    useRef,
+    useState
+} from "react";
 import random from "random";
+
+// TODO:
+// 1. Change column amount on resize
+// 2. Calculate item height
+// 3. Make item sizes random
+// 4. Refactoring (+ delete old-gallery.js)
+// 5. Amend mock data
+// 6. Rewrite all using TypeScript
 
 const ResponsiveGridLayout = (props) => {
     const gridItemAreaPrefix = "i";
+    const responsiveGridLayoutRef = useRef(null);
+    const columnMaxWidthPx = 100;
+    const [columnAmount, setColumnAmount] = useState(1);
+
+    useEffect(() => {
+        setColumnAmount(Math.ceil(responsiveGridLayoutRef.current.clientWidth / columnMaxWidthPx));
+    });
 
     const renderGridLayoutStyleTag = () => {
-        const columnAmount = 5;
-
         const calculateGridTemplateAreas = () => {
             const movePositionForInsertion = () => {
                 let isPositionFound = false;
@@ -58,25 +75,28 @@ const ResponsiveGridLayout = (props) => {
 
         return {
             display: "grid",
-            gridAutoRows: "minmax(200px, auto)",
+            gridAutoRows: `minmax(${columnMaxWidthPx}px, ${columnMaxWidthPx}px)`,
             gridTemplateColumns: `repeat(${columnAmount}, 1fr)`,
             gridTemplateAreas: calculateGridTemplateAreas()
         }
     };
 
     return (
-        <div
-            className="responsive-grid-layout"
-            style={renderGridLayoutStyleTag()}
-        >
-            {React.Children.map(props.children, (child, index) => (
-                <div
-                    className="responsive-grid-layout--item"
-                    style={{ gridArea: `${gridItemAreaPrefix}${index}` }}
-                >
-                    {child}
-                </div>
-            ))}
+        <div className="responsive-grid-layout-container">
+            <div
+                ref={responsiveGridLayoutRef}
+                className="responsive-grid-layout"
+                style={renderGridLayoutStyleTag()}
+            >
+                {React.Children.map(props.children, (child, index) => (
+                    <div
+                        className="responsive-grid-layout--item"
+                        style={{ gridArea: `${gridItemAreaPrefix}${index}` }}
+                    >
+                        {child}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
