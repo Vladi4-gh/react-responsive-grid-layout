@@ -17,11 +17,11 @@ const ResponsiveGridLayout = (props) => {
     const responsiveGridLayoutRef = useRef(null);
     const columnMaxWidth = 100;
     const [columnAmount, setColumnAmount] = useState(1);
-    const [columnHeight, setColumnHeight] = useState(columnMaxWidth);
+    const [rowHeight, setRowHeight] = useState(columnMaxWidth);
 
     useEffect(() => {
         setColumnAmount(Math.ceil(responsiveGridLayoutRef.current.clientWidth / columnMaxWidth));
-        setColumnHeight(responsiveGridLayoutRef.current.clientWidth / columnAmount);
+        setRowHeight(responsiveGridLayoutRef.current.clientWidth / columnAmount);
     });
 
     const renderGridLayoutStyleTag = () => {
@@ -76,7 +76,7 @@ const ResponsiveGridLayout = (props) => {
 
         return {
             display: "grid",
-            gridAutoRows: `minmax(${columnHeight}px, ${columnHeight}px)`,
+            gridAutoRows: `${rowHeight}px`,
             gridTemplateColumns: `repeat(${columnAmount}, 1fr)`,
             gridTemplateAreas: calculateGridTemplateAreas()
         }
