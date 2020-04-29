@@ -7,20 +7,21 @@ import random from "random";
 
 // TODO:
 // 1. Change column amount on resize
-// 2. Calculate item height
-// 3. Make item sizes random
-// 4. Refactoring (+ delete old-gallery.js)
-// 5. Amend mock data
-// 6. Rewrite all using TypeScript
+// 2. Make item sizes random
+// 3. Refactoring (+ delete old-gallery.js)
+// 4. Amend mock data
+// 5. Rewrite all using TypeScript
 
 const ResponsiveGridLayout = (props) => {
     const gridItemAreaPrefix = "i";
     const responsiveGridLayoutRef = useRef(null);
-    const columnMaxWidthPx = 100;
+    const columnMaxWidth = 100;
     const [columnAmount, setColumnAmount] = useState(1);
+    const [columnHeight, setColumnHeight] = useState(columnMaxWidth);
 
     useEffect(() => {
-        setColumnAmount(Math.ceil(responsiveGridLayoutRef.current.clientWidth / columnMaxWidthPx));
+        setColumnAmount(Math.ceil(responsiveGridLayoutRef.current.clientWidth / columnMaxWidth));
+        setColumnHeight(responsiveGridLayoutRef.current.clientWidth / columnAmount);
     });
 
     const renderGridLayoutStyleTag = () => {
@@ -75,7 +76,7 @@ const ResponsiveGridLayout = (props) => {
 
         return {
             display: "grid",
-            gridAutoRows: `minmax(${columnMaxWidthPx}px, ${columnMaxWidthPx}px)`,
+            gridAutoRows: `minmax(${columnHeight}px, ${columnHeight}px)`,
             gridTemplateColumns: `repeat(${columnAmount}, 1fr)`,
             gridTemplateAreas: calculateGridTemplateAreas()
         }

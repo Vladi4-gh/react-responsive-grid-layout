@@ -2,11 +2,9 @@
     @import '../SettingsBar/styles';
 
     .responsive-grid-layout-container {
-        padding: var(--indent-size-s);
+        padding: var(--indent-size-xs);
 
         .responsive-grid-layout {
-            grid-gap: var(--indent-size-s);
-
             &--item {
                 align-items: center;
                 background-color: var(--color-sunshine-yellow);
@@ -16,6 +14,7 @@
                 font-weight: bold;
                 font-size: var(--font-size-xxl);
                 justify-content: center;
+                margin: var(--indent-size-xs);
             }
         }
     }
