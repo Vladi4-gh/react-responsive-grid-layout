@@ -8,7 +8,10 @@ const DemoPage = ({ mockDataItems }) => (
         <SettingsBar />
         <ResponsiveGridLayout data={mockDataItems}>
             {mockDataItems.map((mockDataItem, index) => (
-                <div key={index}>
+                <div
+                    key={index}
+                    className="content-item"
+                >
                     {index + 1}
                 </div>
             ))}

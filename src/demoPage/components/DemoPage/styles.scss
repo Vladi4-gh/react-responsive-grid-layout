@@ -6,15 +6,19 @@
 
         .responsive-grid-layout {
             &--item {
-                align-items: center;
                 background-color: var(--color-sunshine-yellow);
                 border: var(--border-size-s) solid var(--color-hierophant-green);
-                color: var(--color-hierophant-green);
-                display: flex;
-                font-weight: bold;
-                font-size: var(--font-size-xxl);
-                justify-content: center;
                 margin: var(--indent-size-xs);
+
+                .content-item {
+                    align-items: center;
+                    color: var(--color-hierophant-green);
+                    display: flex;
+                    font-weight: bold;
+                    justify-content: center;
+                    height: 100%;
+                    width: 100%;
+                }
             }
         }
     }

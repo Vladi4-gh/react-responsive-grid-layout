@@ -3,14 +3,14 @@ import React, {
     useRef,
     useState
 } from "react";
+import { withResizeDetector } from 'react-resize-detector';
 import random from "random";
 
 // TODO:
-// 1. Change column amount on resize
-// 2. Make item sizes random
-// 3. Refactoring (+ delete old-gallery.js)
-// 4. Amend mock data
-// 5. Rewrite all using TypeScript
+// 1. Make item sizes random
+// 2. Refactoring (+ delete old-gallery.js)
+// 3. Amend mock data
+// 4. Rewrite all using TypeScript
 
 const ResponsiveGridLayout = (props) => {
     const gridItemAreaPrefix = "i";
@@ -102,4 +102,4 @@ const ResponsiveGridLayout = (props) => {
     );
 };
 
-export default ResponsiveGridLayout;
+export default withResizeDetector(ResponsiveGridLayout);
