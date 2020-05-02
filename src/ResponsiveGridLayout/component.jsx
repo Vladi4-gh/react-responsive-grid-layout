@@ -3,26 +3,22 @@ import React, {
     useRef,
     useState
 } from "react";
-import { withResizeDetector } from 'react-resize-detector';
+import { withResizeDetector } from "react-resize-detector";
 import random from "random";
 
 // TODO:
+// 0. Correct width calculation
 // 1. Make item sizes random
-// 2. Refactoring (+ delete old-gallery.js)
+// 2. Refactoring
 // 3. Amend mock data
 // 4. Rewrite all using TypeScript
 
 const ResponsiveGridLayout = (props) => {
     const gridItemAreaPrefix = "i";
-    const responsiveGridLayoutRef = useRef(null);
-    const columnMaxWidth = 100;
-    const [columnAmount, setColumnAmount] = useState(1);
-    const [rowHeight, setRowHeight] = useState(columnMaxWidth);
 
-    useEffect(() => {
-        setColumnAmount(Math.ceil(responsiveGridLayoutRef.current.clientWidth / columnMaxWidth));
-        setRowHeight(responsiveGridLayoutRef.current.clientWidth / columnAmount);
-    });
+    const responsiveGridLayoutRef = useRef(null);
+
+    const columnMaxWidth = 100;
 
     const renderGridLayoutStyleTag = () => {
         const calculateGridTemplateAreas = () => {
@@ -56,6 +52,11 @@ const ResponsiveGridLayout = (props) => {
                 row: 0
             };
 
+            const width = props.width ? props.width : responsiveGridLayoutRef.current?.clientWidth ?? 1;
+
+            columnAmount = Math.ceil(width / columnMaxWidth);
+            rowHeight = width / columnAmount;
+
             props.data.forEach((item, index) => {
                 movePositionForInsertion();
 
@@ -74,12 +75,16 @@ const ResponsiveGridLayout = (props) => {
                 .trimRight();
         };
 
+        let rowHeight = columnMaxWidth;
+        let columnAmount = 1;
+        let gridTemplateAreas = calculateGridTemplateAreas();
+
         return {
-            display: "grid",
+            display: `${props.width ? "grid" : "none"}`,
             gridAutoRows: `${rowHeight}px`,
             gridTemplateColumns: `repeat(${columnAmount}, 1fr)`,
-            gridTemplateAreas: calculateGridTemplateAreas()
-        }
+            gridTemplateAreas: gridTemplateAreas
+        };
     };
 
     return (
@@ -102,4 +107,8 @@ const ResponsiveGridLayout = (props) => {
     );
 };
 
-export default withResizeDetector(ResponsiveGridLayout);
+export default withResizeDetector(ResponsiveGridLayout, {
+    handleWidth: true,
+    refreshMode: "throttle",
+    refreshRate: 100
+});

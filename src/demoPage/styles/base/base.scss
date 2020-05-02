@@ -19,3 +19,8 @@ select {
     min-height: 30px;
     outline: none;
 }
+
+.scrollbars-container {
+    height: 100vh !important;
+    width: 100vw !important;
+}
