@@ -1,19 +1,25 @@
 .demo-page {
     @import '../SettingsBar/styles';
 
-    .responsive-grid-layout {
-        padding: var(--indent-size-s);
-        grid-gap: var(--indent-size-s);
+    .responsive-grid-layout-container {
+        padding: var(--indent-size-xs);
 
-        &--item {
-            align-items: center;
-            background-color: var(--color-sunshine-yellow);
-            border: var(--border-size-s) solid var(--color-hierophant-green);
-            color: var(--color-hierophant-green);
-            display: flex;
-            font-weight: bold;
-            font-size: var(--font-size-xxl);
-            justify-content: center;
+        .responsive-grid-layout {
+            &--item {
+                background-color: var(--color-sunshine-yellow);
+                border: var(--border-size-s) solid var(--color-hierophant-green);
+                margin: var(--indent-size-xs);
+
+                .content-item {
+                    align-items: center;
+                    color: var(--color-hierophant-green);
+                    display: flex;
+                    font-weight: bold;
+                    justify-content: center;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
         }
     }
 }

@@ -16,6 +16,11 @@ select {
     border-top: 1px solid transparent;
     color: var(--color-hierophant-green);
     cursor: pointer;
-    height: 30px;
+    min-height: 30px;
     outline: none;
+}
+
+.scrollbars-container {
+    height: 100vh !important;
+    width: 100vw !important;
 }

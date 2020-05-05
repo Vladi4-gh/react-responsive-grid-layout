@@ -14,7 +14,8 @@
         &__open {
             .current-mock-data-set-name {
                 background-color: var(--color-hierophant-green);
-                color: var(--color-sunshine-yellow)
+                color: var(--color-sunshine-yellow);
+                padding: 0 var(--indent-size-xs);
             }
         }
 
